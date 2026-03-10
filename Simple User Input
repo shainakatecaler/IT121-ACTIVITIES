@@ -1,0 +1,6 @@
+#ASSIGNMENT - simple user input
+name = input("Name: ")
+year = input("Year level: ")
+course = input("Course: ")
+school = input("School: ")
+print("My name is " + name + "! and I am in " + year + " level " + " studying " + course + " at " + school + ".")
