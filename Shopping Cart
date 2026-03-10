@@ -1,0 +1,56 @@
+class ShoppingCart:
+
+    def __init__(self):
+        self.cart = []
+
+    def add_item(self):
+        item = input("Enter item to add: ")
+        self.cart.append(item)
+        print(item, "added to cart.")
+
+    def remove_item(self):
+        item = input("Enter item to remove: ")
+        if item in self.cart:
+            self.cart.remove(item)
+            print(item, "removed from cart.")
+        else:
+            print("Item not found.")
+
+    def view_cart(self):
+        print("Your cart:")
+        for item in self.cart:
+            print("-", item)
+
+    def checkout(self):
+        print("Checking out...")
+        print("Items purchased:")
+        for item in self.cart:
+            print("-", item)
+        print("Thank you for shopping!")
+
+
+cart = ShoppingCart()
+
+while True:
+    print("\n1. Add Item")
+    print("2. Remove Item")
+    print("3. View Cart")
+    print("4. Checkout")
+
+    choice = input("Choose option: ")
+
+    if choice == "1":
+        cart.add_item()
+
+    elif choice == "2":
+        cart.remove_item()
+
+    elif choice == "3":
+        cart.view_cart()
+
+    elif choice == "4":
+        cart.checkout()
+        break
+
+    else:
+        print("Invalid choice")
