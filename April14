@@ -1,0 +1,56 @@
+def create_file() :
+  try:
+    # 'x' mode creates a file, but raises error if it is already exists
+    file = open("message.txt", "x")
+    file.close()
+    print("File created successfully. ")
+  except FileExistsError:
+    print("Error: File already exists.")
+    
+    
+  def send_message():
+    try:
+      message = input("Enter your message: ")
+      with open("message.txt", "a") as file:
+        file.write(message+ "\n")
+      print("Message saved. ")
+    except Exception as e:
+      print("Error writing to file:", e)
+      
+      
+  def view_messages():
+    try:
+      with open("message.txt", "r") as file:
+        messages = realines()
+        if messages:
+          print("\n--- Messages ---")
+          for msg in messages:
+            print(msg.strip())
+        else:
+          print("No messages found. ")
+    except FileNotFoundError:
+      print("Error file not found. ")
+      
+      
+  def menu():
+    while True:
+      print("\nMenu:")
+      print("1. Send a message")
+      print("2. View all messages")
+      print("3. Exit")
+      
+      choice = input("Enter your choice: ")
+      
+      if choice == "1":
+        send_message()
+      if choice == "2":
+        view_messages()
+      if choice == "3":
+        print("Exiting program...")
+        break
+      else:
+        print("Invalid Choice. Try again.")
+    
+  # Run program
+  create_file()
+  menu()
